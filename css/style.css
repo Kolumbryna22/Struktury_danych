@@ -460,6 +460,7 @@ a {
 .data-content {
   display: flex;
   flex-wrap: wrap;
+  padding: 10px;
   width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
