@@ -48,12 +48,15 @@
         for(i = 0; i < data.length; i++) {
             div[i] = document.createElement("div");
             div[i].setAttribute("id", data[i].id);
+            div[i].setAttribute("class", "box");
 
             title[i] = document.createElement("p");
             title[i].appendChild(document.createTextNode(data[i].title));
+            title[i].setAttribute("class", "box-title");
             
             content[i] = document.createElement("p");
             content[i].appendChild(document.createTextNode(data[i].content));
+            content[i].setAttribute("class", "box-content");
 
             div[i].appendChild(title[i]);
             div[i].appendChild(content[i]);

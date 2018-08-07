@@ -1,8 +1,11 @@
 .box-title {
+    @include clear-mp;
     border-bottom: 1px solid $color-box-border;
+    padding: 5px;
     text-align: center;
 }
 
 .box-content {
+    padding: 5px;
     text-align: center;
 }
