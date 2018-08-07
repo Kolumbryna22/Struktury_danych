@@ -3,9 +3,12 @@
 }
 
 .special-header {
-    background-color: $color-special;
+    .box-title {
+        background-color: $color-special;
+    }
 }
 
 .important {
-    background-color: $color-important;
+    // atribute important is necessary
+    opacity: $opacity-important !important;
 }

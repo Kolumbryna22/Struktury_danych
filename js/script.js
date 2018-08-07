@@ -34,42 +34,55 @@
         },
     ];
 
-    function addElement(text) {
-        return document.createElement("p").appendChild(document.createTextNode(text));
+    function addElement(text, className) {
+        // create element with given class
+
+        var output = document.createElement("p");
+        output.appendChild(document.createTextNode(text));
+        output.setAttribute("class", className);
+
+        return output;
+    }
+
+    function addCategories(classList, element) {
+        // add classes to box
+
+        var i = 0;
+
+        while(classList[i]) {
+            element.classList.add(classList[i]);
+            i++;
+        }
+
+        return element;
     }
     
     function showData() {
         var i;
-        var div = [];
-        var title = [];
-        var content = [];
+        var box;
+        var title;
+        var content;
         var element = document.getElementById("dataContent");
 
         for(i = 0; i < data.length; i++) {
-            div[i] = document.createElement("div");
-            div[i].setAttribute("id", data[i].id);
-            div[i].setAttribute("class", "box");
+            // create box
+            box = document.createElement("div");
+            box.setAttribute("id", data[i].id);
+            box.setAttribute("class", "box");
 
-            title[i] = document.createElement("p");
-            title[i].appendChild(document.createTextNode(data[i].title));
-            title[i].setAttribute("class", "box-title");
-            
-            content[i] = document.createElement("p");
-            content[i].appendChild(document.createTextNode(data[i].content));
-            content[i].setAttribute("class", "box-content");
+            // add classes to box
+            addCategories(data[i].categories, box);
 
-            div[i].appendChild(title[i]);
-            div[i].appendChild(content[i]);
+            // create title and content of box
+            title = addElement(data[i].title, "box-title");
+            content = addElement(data[i].content, "box-content");
 
-            // nie wiem dlaczego w ten sposób nie działa
-            // div[i].appendChild(addElement(data[i].title));
-            // div[i].appendChild(addElement(data[i].content);
-            // jak zrobię przez zmienną, np.:
-            // title[i] = addElement(data[i].title);
-            // div[i].appendChild(title[i]);
-            // to też nie działa tylko wystawia sam tekst bez tagu p
+            // add title and content to box
+            box.appendChild(title);
+            box.appendChild(content);
 
-            element.appendChild(div[i]);
+            // add box to DOM
+            element.appendChild(box);
         }
     }
 
