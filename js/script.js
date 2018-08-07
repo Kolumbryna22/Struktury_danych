@@ -41,19 +41,14 @@
     function showData() {
         var i;
         var div = [];
-        var title;
-        var content;
         var element = document.getElementById("dataContent");
 
         for(i = 0; i < data.length; i++) {
             div[i] = document.createElement("div");
             div[i].setAttribute("id", data[i].id);
-            
-            title = addElement(data[i].title);
-            content = addElement(data[i].content);
 
-            div[i].appendChild(title);
-            div[i].appendChild(content);
+            div[i].appendChild(addElement(data[i].title));
+            div[i].appendChild(addElement(data[i].content));
 
             element.appendChild(div[i]);
         }
