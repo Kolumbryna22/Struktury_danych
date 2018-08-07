@@ -33,27 +33,27 @@
             categories: []
         },
     ];
+
+    function addElement(text) {
+        return document.createElement("p").appendChild(document.createTextNode(text));
+    }
     
     function showData() {
-        var n = data.length;
         var i;
         var div = [];
-        var title = [];
-        var content = [];
+        var title;
+        var content;
         var element = document.getElementById("dataContent");
 
-        for(i = 0; i < n; i++) {
+        for(i = 0; i < data.length; i++) {
             div[i] = document.createElement("div");
             div[i].setAttribute("id", data[i].id);
+            
+            title = addElement(data[i].title);
+            content = addElement(data[i].content);
 
-            title[i] = document.createElement("p");
-            title[i].appendChild(document.createTextNode(data[i].title));
-
-            content[i] = document.createElement("p");
-            content[i].appendChild(document.createTextNode(data[i].content));
-
-            div[i].appendChild(title[i]);
-            div[i].appendChild(content[i]);
+            div[i].appendChild(title);
+            div[i].appendChild(content);
 
             element.appendChild(div[i]);
         }
