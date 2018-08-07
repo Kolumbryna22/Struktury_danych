@@ -41,14 +41,30 @@
     function showData() {
         var i;
         var div = [];
+        var title = [];
+        var content = [];
         var element = document.getElementById("dataContent");
 
         for(i = 0; i < data.length; i++) {
             div[i] = document.createElement("div");
             div[i].setAttribute("id", data[i].id);
 
-            div[i].appendChild(addElement(data[i].title));
-            div[i].appendChild(addElement(data[i].content));
+            title[i] = document.createElement("p");
+            title[i].appendChild(document.createTextNode(data[i].title));
+            
+            content[i] = document.createElement("p");
+            content[i].appendChild(document.createTextNode(data[i].content));
+
+            div[i].appendChild(title[i]);
+            div[i].appendChild(content[i]);
+
+            // nie wiem dlaczego w ten sposób nie działa
+            // div[i].appendChild(addElement(data[i].title));
+            // div[i].appendChild(addElement(data[i].content);
+            // jak zrobię przez zmienną, np.:
+            // title[i] = addElement(data[i].title);
+            // div[i].appendChild(title[i]);
+            // to też nie działa tylko wystawia sam tekst bez tagu p
 
             element.appendChild(div[i]);
         }
