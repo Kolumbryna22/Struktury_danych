@@ -38,7 +38,7 @@
         // create element with given class
 
         var output = document.createElement("p");
-        output.appendChild(document.createTextNode(text));
+        output.innerHTML = text;
         output.setAttribute("class", className);
 
         return output;
